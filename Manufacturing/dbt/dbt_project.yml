@@ -1,0 +1,18 @@
+name: 'manufacturing_data_strategy'
+version: '1.0.0'
+config-version: 2
+profile: 'manufacturing_duckdb'
+model-paths: ["models"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+models:
+  manufacturing_data_strategy:
+    bronze:
+      +materialized: table
+      +schema: bronze
+    silver:
+      +materialized: table
+      +schema: silver
+    gold:
+      +materialized: table
+      +schema: gold
